@@ -105,6 +105,7 @@ class CliffordAlgebra(nn.Module):
     def embed_grade(self, tensor: torch.Tensor, grade: int) -> torch.Tensor:
         mv = torch.zeros(*tensor.shape[:-1], 2**self.dim, device=tensor.device)
         s = self.grade_to_slice[grade]
+        print('test test')  # 🛑
         print(mv,tensor)                # ⚠️
         mv[..., s] = tensor
         return mv
