@@ -109,9 +109,9 @@ class CliffordAlgebra(nn.Module):
         mv[..., s] = tensor
         return mv
 
-    def embed_grades(self, tensor_base: torch.Tensor, tensor: torch.Tensor, grade: int) -> torch.Tensor: # 🛑➕
-        with torch.device(tensor_base.device):
-              mv = tensor_base 
+    def embed_grades(self, mv: torch.Tensor, tensor: torch.Tensor, grade: int) -> torch.Tensor: # 🛑➕
+        #with torch.device(tensor.device):
+        #      mv = tensor 
         s = self.grade_to_slice[grade]  
         mv[..., s] = tensor
         return mv
